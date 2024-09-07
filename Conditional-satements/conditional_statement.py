@@ -13,3 +13,4 @@ elif x % 2 == 0 and x < 3:
     print("no but prime")
 else:
     print("not prime not greater")
+
