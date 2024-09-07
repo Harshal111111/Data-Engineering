@@ -6,11 +6,11 @@
 x = 1
 
 if x % 2 == 0 and x > 3:
-    print("yes, and its prime")
+    print("yes, and its even")
 elif x % 2 != 0 and x > 3:
-    print("Yes but not prime")
+    print("Yes but odd")
 elif x % 2 == 0 and x < 3:
-    print("no but prime")
+    print("no but even")
 else:
-    print("not prime not greater")
+    print("not even not greater")
 
