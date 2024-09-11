@@ -1,0 +1,64 @@
+Introduction to Object-Oriented Programming (OOP)
+Introduction to Object-Oriented Programming (OOP) in Python
+Object-Oriented Programming (OOP) is a powerful programming paradigm that allows developers to create more organized,
+efficient, and maintainable code. In Python, everything is an object, making it an excellent choice for learning and applying OOP concepts.
+that data. This concept mimics real-world entities, where each object has its attributes (data) and methods (behavior).
+
+Four Pillars of OOP
+OOP is built on four fundamental pillars:
+
+Encapsulation: Bundling data and methods within an object, providing data hiding and protection from external interference.
+In Python, we achieve encapsulation using classes.
+
+Abstraction: Hiding complex implementation details and exposing only relevant features. This allows us to focus on what
+an object does rather than how it does it. Abstract classes or interfaces in Python help achieve abstraction.
+
+Inheritance: Creating hierarchies and allowing classes to inherit properties and methods from other classes.
+It promotes code reuse and enables us to build a hierarchy of classes. Python supports inheritance through base and derived classes.
+
+Polymorphism: Enabling objects to take multiple forms. Objects can be treated as instances of their parent class or as
+instances of their child classes. This promotes flexibility and extensibility in code.
+
+Writing a Simple Class in Python
+Let's create a simple class called Car that represents basic car properties in Python:
+
+class Car:
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+ 
+    def display_info(self):
+        return f"{self.year} {self.make} {self.model}"
+    
+Creating Objects
+We can now create objects (instances) of the Car class and use them:
+
+car1 = Car("Toyota", "Camry", 2022)
+car2 = Car("Tesla", "Model S", 2023)
+ 
+print(car1.display_info())
+print(car2.display_info())
+    
+Inheritance and Polymorphism in Action
+Let's explore inheritance and polymorphism through a simple example. We'll create a new class ElectricCar that inherits
+from the Car class:
+
+class ElectricCar(Car):
+    def __init__(self, make, model, year, battery_capacity):
+        super().__init__(make, model, year)
+        self.battery_capacity = battery_capacity
+ 
+    def display_info(self):
+        return f"{self.year} {self.make} {self.model} with {self.battery_capacity} kWh battery"
+    
+Now, we can create an ElectricCar object and use its methods just like a regular Car object:
+
+electric_car = ElectricCar("Nissan", "Leaf", 2023, 40)
+ 
+print(electric_car.display_info())
+    
+Conclusion
+Object-oriented programming is a fundamental concept in Python that enables us to create more organized and efficient code.
+Understanding the pillars of OOP, such as encapsulation, abstraction, inheritance, and polymorphism, empowers developers to
+build robust and scalable applications.
