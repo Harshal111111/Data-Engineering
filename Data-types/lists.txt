@@ -91,7 +91,8 @@ numbers = [1, 2, 3, 4, 5]
 numbers.reverse()
 print(numbers)        # Output: [5, 4, 3, 2, 1]
 4. List Comprehension
-List comprehension is a concise way to create lists based on existing lists or other iterable objects. It allows you to filter, map, and create new lists in a single line of code. Let's explore the syntax and some examples:
+List comprehension is a concise way to create lists based on existing lists or other iterable objects. It allows you to filter,
+map, and create new lists in a single line of code. Let's explore the syntax and some examples:
 
 # Syntax: [expression for item in iterable if condition]
 numbers = [1, 2, 3, 4, 5]
@@ -163,8 +164,6 @@ Implementing stacks, queues, and other data structures
 Sorting and manipulating data
 
 Storing results and generating reports
-
-
 
 Conclusion
 In this comprehensive guide, we explored the fundamentals of lists in Python. We learned how to create lists,
