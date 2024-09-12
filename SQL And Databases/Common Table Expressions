@@ -1,0 +1,75 @@
+WITH statement
+Understanding the SQL WITH Statement
+The SQL `WITH` statement, also known as a Common Table Expression (CTE), is a powerful tool for simplifying
+complex SQL queries and improving query readability. It allows you to define temporary result sets that can be referenced
+ within the main query. In this article, we will explore the syntax, benefits, and use cases of the SQL `WITH` statement.
+
+The Syntax of the WITH Statement
+The basic syntax of the SQL `WITH` statement is as follows:
+
+    WITH cte_name (column1, column2, ...) AS (
+  -- CTE query definition here
+)
+-- Main query that references the CTE
+SELECT ...
+FROM ...
+WHERE ...;
+
+WITH cte_name: This is where you provide a name for your CTE. It acts as a temporary table name that you can reference
+within the main query.
+
+(column1, column2, ...): You can optionally specify the column names that the CTE will contain.
+This is especially useful when the CTE query involves complex calculations or joins.
+
+AS: This keyword indicates the start of the CTE query definition.
+
+-- CTE query definition here: This is where you write the SQL query that defines the CTE. It can be a SELECT statement,
+and you can use other CTEs within it.
+
+Benefits of Using the WITH Statement
+The SQL `WITH` statement offers several advantages:
+
+Improved Readability: CTEs can make your queries more readable by breaking down complex logic into smaller, named parts.
+
+Code Reusability: You can reuse the same CTE in multiple places within a query, reducing duplication of code and making
+maintenance easier.
+
+Recursive Queries: CTEs are commonly used for recursive queries, such as hierarchical data traversal.
+
+Performance Optimization: In some cases, the database optimizer can optimize CTEs for better query performance.
+
+Use Cases
+The SQL `WITH` statement is handy in various scenarios:
+
+Recursive Queries: When dealing with hierarchical data structures like organizational charts, file systems, or bill of
+materials.
+
+Data Transformation: For pre-processing data before performing complex joins or aggregations.
+
+Multiple References: When you need to reference the same intermediate result multiple times within a query.
+
+Example
+Let's consider a practical example. Suppose you have a database with a table called `employees` that contains information
+about employees, including their names, salaries, and manager IDs. You want to find the total salary cost for each manager,
+including their direct reports. You can use the SQL `WITH` statement to simplify this query:
+
+    WITH RecursiveManagerCTE AS (
+  SELECT employee_id, first_name, last_name, manager_id, salary
+  FROM employees
+  WHERE manager_id IS NULL -- Find top-level managers
+  UNION ALL
+  SELECT e.employee_id, e.first_name, e.last_name, e.manager_id, e.salary
+  FROM employees e
+  JOIN RecursiveManagerCTE r ON e.manager_id = r.employee_id
+)
+
+SELECT manager_id, SUM(salary) AS total_salary_cost
+FROM RecursiveManagerCTE
+GROUP BY manager_id;
+
+In this example, we define a recursive CTE called `RecursiveManagerCTE` to navigate the employee hierarchy.
+The main query then calculates the total salary cost for each manager by grouping the results from the CTE.
+
+The SQL `WITH` statement, or Common Table Expression, is a valuable tool for simplifying complex queries, improving
+code readability, and enabling recursive operations. By mastering this feature, you'll be better equipped to work with
+complex data structures and solve advanced querying challenges in your database work.

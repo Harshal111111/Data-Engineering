@@ -1,0 +1,67 @@
+Mastering SQL: The SELECT and WHERE Clauses Demystified
+
+
+The SELECT Clause
+The SELECT clause is the backbone of SQL queries. It is used to specify the columns you want to retrieve
+from a database table. A basic SELECT statement looks like this:
+
+    SELECT column1, column2, ...
+FROM table_name;
+
+SELECT: This keyword is used to indicate that you want to retrieve data from the database.
+
+column1, column2, ...: These are the names of the columns you want to include in the result set.
+ You can specify one or more columns, separated by commas.
+
+FROM table_name: This part of the query specifies the table from which you want to retrieve data.
+
+Example:
+Suppose you have a table named students with columns student_id, first_name, last_name, and age.
+You can use the SELECT clause to retrieve the first and last names of all students:
+
+    SELECT first_name, last_name
+FROM students;
+
+The WHERE Clause
+While the SELECT clause helps you choose which columns to retrieve, the WHERE clause allows you to filter
+the rows you want to include in the result set based on specified conditions. A basic WHERE clause is added
+to the SELECT statement as follows:
+
+    SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+
+WHERE condition: This part of the query defines the condition that each row must meet to be included in the
+result set. Rows that don't meet this condition are excluded.
+
+Example:
+Suppose you want to retrieve the first and last names of students who are older than 20 years.
+You can use the WHERE clause to filter the rows based on the age:
+
+    SELECT first_name, last_name
+FROM students
+WHERE age > 20;
+
+Combining SELECT and WHERE
+To harness the full power of SQL queries, you often combine the SELECT and WHERE clauses.
+This allows you to not only choose which columns to retrieve but also filter the rows based on specific criteria.
+
+Example:
+Let's say you want to retrieve the first and last names of students who are older than 20 years and have a
+last name starting with 'S'. You can achieve this by combining the SELECT and WHERE clauses:
+
+    SELECT first_name, last_name
+FROM students
+WHERE age > 20
+  AND last_name LIKE 'S%';
+
+In this query:
+
+We use the SELECT clause to specify that we want to retrieve the first_name and last_name columns.
+
+The WHERE clause filters the rows based on two conditions:
+
+age > 20: Selects students older than 20.
+
+last_name LIKE 'S%': Selects students with last names starting with 'S'.
+
