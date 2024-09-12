@@ -1,0 +1,25 @@
+Methods:
+
+1. nununique(): It is used to count unique elements in the target column.
+2. dropna(): It is used to remove the rows that contains NULL values.
+             df.dropna(inplace=True)
+
+3. assert : The assert keyword lets you test if a condition in your code returns True,
+            if not, the program will raise an AssertionError
+
+
+4. shape(): The shape is the number of rows and columns of the DataFrame.
+
+Example:
+If df.shape returns (100, 5), it means the DataFrame has 100 rows and 5 columns.
+df.shape[0] would return 100 (the number of rows).
+df.shape[1] would return 5 (the number of columns).
+
+So, df.shape[0] is used to get the total number of rows in your DataFrame.
+
+5.astype():  returns a new DataFrame where the data types has been changed to the specified type.
+
+6.head():The head() method returns a specified number of rows, string from the top.
+         The head() method returns the first 5 rows if a number is not specified.
+
+
