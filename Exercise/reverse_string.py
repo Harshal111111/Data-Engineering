@@ -1,3 +1,4 @@
+#
 # Reverse a String
 # Create a function called reverse_string that takes a string as input and returns a
 # new string with its characters reversed.
@@ -11,3 +12,4 @@ def reverse_string(input_string):
 
 result = reverse_string("hello")
 print(result)
+
