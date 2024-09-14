@@ -12,3 +12,15 @@ print(is_palindrome("madam"))         # Output: True
 print(is_palindrome("racecar"))       # Output: True
 print(is_palindrome("hello"))         # Output: False
 print(is_palindrome("A man a plan a canal Panama"))  # Output: True
+
+
+# For Digit:
+class Solution:
+  def isPalindrome(self, x: int) -> bool:
+    rev = 0
+    num = x
+    while x > 0:
+      digit = x % 10
+      rev = rev * 10 + digit
+      x = x // 10
+    return num == rev
