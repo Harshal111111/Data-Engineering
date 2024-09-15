@@ -1,0 +1,60 @@
+Product Inventory Analysis
+Aim: Find the Products with the Highest and Lowest Inventory Levels
+
+In this SQL coding exercise, you will work with a database table called products.
+Your task is to write a SELECT query to analyze product inventory data and find the products with the highest
+and lowest inventory levels.
+
+
+
+Data Description:
+
+You are provided with a table named products with the following columns:
+
+product_id (integer) - Primary Key
+
+product_name (varchar(100))
+
+inventory_level (integer)
+
+
+
+Instructions:
+
+Write a SQL SELECT query that retrieves the following information:
+
+Product name
+
+Inventory level for each product
+
+Sort the results in descending order based on inventory level.
+
+Limit the results to display the top 5 products with the highest inventory levels and the bottom 5 products with
+the lowest inventory levels.
+
+
+
+| Product Name          | Inventory Level |
+|-----------------------|-----------------|
+| Laptop                | 50              |
+| Printer               | 45              |
+| Monitor               | 40              |
+| Tablet                | 38              |
+| Keyboard              | 36              |
+| DVD Player            | 12              |
+| Bluetooth Speaker     | 10              |
+| Headphones            | 8               |
+| Digital Camera        | 5               |
+| Portable Hard Drive   | 3               |
+
+
+Solution:
+
+select * from (select product_name as "Product Name", inventory_level as "Inventory Level"
+from products
+order by inventory_level desc limit 5)
+union all
+select * from (select product_name as "Product Name", inventory_level as "Inventory Level"
+from products order by inventory_level asc limit 5)
+order by "Inventory Level" desc;
+

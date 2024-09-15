@@ -1,0 +1,51 @@
+Launch Date Analysis
+Aim: Find the Most Popular Launch Date
+
+In this SQL coding exercise, you will work with a database table called products.
+Your task is to write a SELECT query to analyze product launch data and find the most popular launch date,
+i.e., the date with the highest number of products launched.
+
+Data Description:
+
+You are provided with a table named products with the following columns:
+
+product_id (integer) - Primary Key
+
+launch_date (date)
+
+Instructions:
+
+Write a SQL SELECT query that retrieves the following information:
+
+Launch date
+
+Number of products launched on each date
+
+Identify the launch date with the highest number of products launched.
+
+Display the results in a table with the following columns:
+
+Launch Date
+
+Number of Products
+
+Sample Output Table:
+
+Table
+
+Launch Date | Number of Products
+
+------------------------------------
+
+2023-10-05 | 3
+
+Solution:
+
+SELECT launch_date as "Launch Date", count(product_id) as "Number of Products"
+
+FROM products
+
+GROUP BY "Launch Date"
+
+ORDER BY "Number of products" desc
+limit 1;

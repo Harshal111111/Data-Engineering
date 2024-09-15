@@ -1,0 +1,68 @@
+Employee Salary Analysis
+Aim: Find the Highest and Lowest Salaries by Department
+
+In this SQL coding exercise, you will work with a database table called employees.
+Your task is to write a SELECT query to analyze employee salary data and find the highest and
+lowest salaries for each department.
+
+
+
+You are provided with a table named employees with the following columns:
+
+employee_id (integer) - Primary Key
+
+first_name (varchar(50))
+
+last_name (varchar(50))
+
+department (varchar(50))
+
+salary (decimal(10, 2))
+
+
+
+Instructions:
+
+Write a SQL SELECT query that retrieves the following information:
+
+Department name
+
+Employee with the highest salary in each department (full name)
+
+Highest salary in each department
+
+Employee with the lowest salary in each department (full name)
+
+The lowest salary in each department
+
+Group the results by department name.
+
+Sort the results in ascending order based on the department name.
+
+Department      | Highest Earner     | Highest Salary | Lowest Earner      | Lowest Salary
+-----------------------------------------------------------------------------------------
+Engineering     | John Doe           | 85000.00       | Alice Johnson      | 60000.00
+Marketing       | Jane Smith         | 75000.00       | Jane Smith         | 75000.00
+Sales           | Alice Johnson      | 60000.00       | Alice Johnson      | 60000.00
+
+
+solution:
+
+-- Solution
+-- Write your SQL query here to find the highest and lowest salaries by department
+SELECT
+    e1.department AS Department,
+    e1.first_name || ' ' || e1.last_name AS "Highest Earner",
+    e1.salary AS "Highest Salary",
+    e2.first_name || ' ' || e2.last_name AS "Lowest Earner",
+    e2.salary AS "Lowest Salary"
+FROM
+    employees e1
+JOIN
+    employees e2 ON e1.department = e2.department
+WHERE
+    e1.salary = (SELECT MAX(salary) FROM employees WHERE department = e1.department)
+    AND e2.salary = (SELECT MIN(salary) FROM employees WHERE department = e2.department)
+ORDER BY
+    e1.department ASC;
+

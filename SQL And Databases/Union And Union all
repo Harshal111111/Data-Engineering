@@ -1,0 +1,72 @@
+UNION and UNION ALL
+Understanding the SQL UNION and UNION ALL Statements
+The SQL `UNION` and `UNION ALL` statements are powerful tools for combining the results of multiple SELECT queries into
+a single result set. These statements are commonly used to merge data from multiple tables or retrieve distinct values
+from multiple queries. In this article, we will explore the syntax, differences, and use cases of the SQL `UNION` and
+`UNION ALL` statements.
+
+The Syntax of the UNION Statement
+The basic syntax of the SQL `UNION` statement is as follows:
+
+    SELECT column1, column2, ...
+FROM table1
+UNION
+SELECT column1, column2, ...
+FROM table2;
+
+SELECT column1, column2, ...: These are the columns you want to retrieve from the tables involved in the union operation.
+The columns in both SELECT queries must have compatible data types.
+
+FROM table1: This is the first table or query from which you want to retrieve data.
+
+UNION: This keyword combines the results of the first SELECT query with the results of the second SELECT query.
+
+SELECT column1, column2, ...: These are the columns you want to retrieve from the second table or query. The columns
+must match the structure of the first SELECT.
+
+The Syntax of the UNION ALL Statement
+
+
+The SQL `UNION ALL` statement is similar to `UNION`, but it includes duplicate rows in the result set. Its syntax is the
+same as `UNION`:
+
+    SELECT column1, column2, ...
+FROM table1
+UNION ALL
+SELECT column1, column2, ...
+FROM table2;
+
+Unlike `UNION`, `UNION ALL` does not remove duplicate rows. It simply combines the results of both SELECT queries,
+including all rows from both tables.
+
+Differences Between UNION and UNION ALL
+The primary difference between `UNION` and `UNION ALL` is how they handle duplicate rows:
+
+UNION: Removes duplicate rows from the result set, providing a distinct list of values.
+
+UNION ALL: Includes all rows from both tables, including duplicates.
+
+
+
+Use Cases
+Both `UNION` and `UNION ALL` have their use cases:
+
+UNION: Use when you want to retrieve distinct values from multiple queries or tables.
+
+UNION ALL: Use when you want to combine all rows from multiple queries or tables, including duplicates.
+
+Example
+Let's consider a practical example. Suppose you have two tables, `employees` and `contractors`, and you want to retrieve
+a list of all unique names (first and last names) from both tables. You can use the SQL `UNION` statement for this:
+
+    SELECT first_name, last_name
+FROM employees
+UNION
+SELECT first_name, last_name
+FROM contractors;
+
+This query combines the names from both tables while removing duplicate entries.
+
+The SQL `UNION` and `UNION ALL` statements are essential tools for merging data from multiple sources or retrieving
+distinct values from multiple queries. By understanding their differences and use cases, you can efficiently manipulate
+and consolidate data in your SQL queries, making them more versatile and powerful.

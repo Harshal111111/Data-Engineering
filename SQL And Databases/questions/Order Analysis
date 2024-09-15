@@ -1,0 +1,52 @@
+Order Analysis
+Aim: Find the Top 10 Products Ordered the Most
+
+In this SQL coding exercise, you will work with a database table called orders.
+Your task is to write a SELECT query to analyze order data and find the top 10 products that have
+been ordered the most.
+
+
+
+Data Description:
+
+You are provided with a table named orders with the following columns:
+
+order_id (integer) - Primary Key
+
+product_name (varchar(100))
+
+
+
+Instructions:
+
+Write a SQL SELECT query that retrieves the following information:
+
+Product name
+
+Number of times each product has been ordered (count)
+
+Group the results by product name.
+
+Sort the results in descending order based on the number of times each product has been ordered.
+
+Limit the results to display the top 10 products.
+
+Product Name         | Order Count
+-----------------------------------
+Laptop               | 45
+Printer              | 40
+Monitor              | 38
+Tablet               | 35
+Keyboard             | 32
+Mouse                | 30
+Smartphone           | 28
+DVD Player           | 22
+Bluetooth Speaker    | 20
+Headphones           | 18
+
+
+solution:
+
+select product_name as "Product Name", count(order_id) as "Order Count"
+from orders
+group by product_name order by "Order Count" desc limit 10;

@@ -1,0 +1,46 @@
+Order Date Analysis
+Aim: Find the Busiest Order Date
+
+In this SQL coding exercise, you will work with a database table called orders.
+Your task is to write a SELECT query to analyze order data and find the busiest order date,
+i.e., the date with the highest number of orders placed.
+
+
+
+Data Description:
+
+You are provided with a table named orders with the following columns:
+
+order_id (integer) - Primary Key
+
+order_date (date)
+
+
+
+Instructions:
+
+Write a SQL SELECT query that retrieves the following information:
+
+Order date
+
+Number of orders placed on each date
+
+Identify the order date with the highest number of orders placed.
+
+Display the results in a table with the following columns:
+
+Order Date
+
+Number of Orders
+
+Sample Output Table:
+
+Order Date    | Number of Orders
+-------------------------------
+2023-09-10    | 35
+
+Solution:
+
+select order_date as "Order Date", count(order_id) as "Number of Orders"
+from orders
+group by order_date order by "Number of Orders" desc limit 1

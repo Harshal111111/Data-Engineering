@@ -1,0 +1,47 @@
+Student Grades Analysis
+Aim: Calculate the Average Grade per Subject
+
+In this SQL coding exercise, you will work with a database table called student_grades.
+Your task is to write a SELECT query to analyze student grade data and find the average grade for each subject.
+
+
+
+Data Description:
+
+You are provided with a table named student_grades with the following columns:
+
+student_id (integer) - Primary Key
+
+subject_name (varchar(100))
+
+grade (decimal(5, 2))
+
+
+
+Instructions:
+
+Write a SQL SELECT query that retrieves the following information:
+
+Subject name
+
+Average grade for each subject
+
+Group the results by subject name.
+
+Sort the results in descending order based on the average grade.
+
+Sample Output Format:
+
+Subject Name     | Average Grade
+-------------------------------
+Mathematics      | 88.50
+Science          | 85.25
+History          | 78.75
+English          | 76.00
+Geography        | 73.25
+
+Solution:
+
+select subject_name as "Subject Name" , avg(grade) as "Average Grade"
+from student_grades
+group by subject_name order by "Average Grade" desc
