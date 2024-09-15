@@ -1,0 +1,52 @@
+Customer Purchase Analysis
+Aim: Find the Top Customers by Total Purchase Amount
+
+In this SQL coding exercise, you will work with a database table called customer_purchases.
+Your task is to write a SELECT query to analyze customer purchase data and find the top 5 customers
+with the highest total purchase amounts.
+
+
+
+Data Description:
+
+You are provided with a table named customer_purchases with the following columns:
+
+customer_id (integer) - Primary Key
+
+first_name (varchar(50))
+
+last_name (varchar(50))
+
+purchase_amount (decimal(10, 2))
+
+
+
+Instructions:
+
+Write a SQL SELECT query that retrieves the following information:
+
+Customer's full name (concatenate first_name and last_name with a space in between)
+
+Total purchase amount for each customer
+
+Group the results by the customer's full name.
+
+Sort the results in descending order based on the total purchase amount.
+
+Limit the results to display the top 5 customers.
+
+Sample Output Format:
+
+Customer Name     | Total Purchase Amount
+-----------------------------------------
+John Doe          | 8500.00
+Jane Smith        | 7500.00
+Alice Johnson     | 6000.00
+Michael Brown     | 5500.00
+Sarah Wilson      | 5000.00
+
+Solution:
+
+select first_name || ' ' || last_name AS "Customer Name", purchase_amount as "Total Purchase Amount"
+from customer_purchases
+group by "Customer Name" order by purchase_amount desc limit 5;

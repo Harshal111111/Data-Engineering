@@ -1,0 +1,143 @@
+Certainly! Data transformation using Pandas involves manipulating and converting data to make it more suitable
+for analysis or to meet specific requirements. Below are some common data transformation examples using Pandas:
+
+### 1. **Loading Data**
+
+First, let’s load some example data into a Pandas DataFrame. Here’s a simple dataset:
+
+```python
+import pandas as pd
+
+# Example data
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],
+    'Age': [25, 30, 35, 40, 22],
+    'Salary': [50000, 60000, 70000, 80000, 55000],
+    'Department': ['HR', 'Engineering', 'Marketing', 'Engineering', 'HR']
+}
+
+df = pd.DataFrame(data)
+```
+
+### 2. **Filtering Data**
+
+To filter rows based on certain conditions, use boolean indexing:
+
+```python
+# Filter employees with Salary greater than 55000
+high_salary_df = df[df['Salary'] > 55000]
+print(high_salary_df)
+```
+
+### 3. **Adding New Columns**
+
+You can create new columns based on existing data:
+
+```python
+# Add a new column for bonus (10% of Salary)
+df['Bonus'] = df['Salary'] * 0.10
+print(df)
+```
+
+### 4. **Renaming Columns**
+
+To rename columns for better readability:
+
+```python
+# Rename columns
+df.rename(columns={'Name': 'Employee Name', 'Salary': 'Annual Salary'}, inplace=True)
+print(df)
+```
+
+### 5. **Grouping and Aggregating Data**
+
+Group data by a specific column and calculate aggregate statistics:
+
+```python
+# Group by Department and calculate average salary
+department_salary = df.groupby('Department')['Annual Salary'].mean()
+print(department_salary)
+```
+
+### 6. **Handling Missing Data**
+
+Handle missing data by filling or dropping it:
+
+```python
+# Example data with missing values
+data_with_missing = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', None],
+    'Age': [25, 30, None, 40, 22],
+    'Salary': [50000, None, 70000, 80000, 55000]
+}
+
+df_missing = pd.DataFrame(data_with_missing)
+
+# Fill missing values
+df_missing.fillna({'Name': 'Unknown', 'Age': df_missing['Age'].mean(), 'Salary': df_missing['Salary'].mean()}, inplace=True)
+print(df_missing)
+
+# Drop rows with any missing values
+df_dropped = df_missing.dropna()
+print(df_dropped)
+```
+
+### 7. **Merging DataFrames**
+
+Combine data from multiple DataFrames:
+
+```python
+# Example additional data
+data_additional = {
+    'Name': ['Alice', 'Bob', 'Charlie'],
+    'Hobby': ['Reading', 'Cycling', 'Hiking']
+}
+
+df_additional = pd.DataFrame(data_additional)
+
+# Merge on 'Name'
+merged_df = pd.merge(df, df_additional, left_on='Employee Name', right_on='Name', how='left')
+print(merged_df)
+```
+
+### 8. **Pivot Tables**
+
+Create pivot tables for summarizing data:
+
+```python
+# Pivot table to summarize average salary by Department
+pivot_table = pd.pivot_table(df, values='Annual Salary', index='Department', aggfunc='mean')
+print(pivot_table)
+```
+
+### 9. **Sorting Data**
+
+Sort DataFrame by one or more columns:
+
+```python
+# Sort by 'Annual Salary' in descending order
+sorted_df = df.sort_values(by='Annual Salary', ascending=False)
+print(sorted_df)
+```
+
+### 10. **Applying Functions**
+
+Apply custom functions to transform data:
+
+```python
+# Define a custom function
+def salary_category(salary):
+    if salary > 70000:
+        return 'High'
+    elif salary > 50000:
+        return 'Medium'
+    else:
+        return 'Low'
+
+# Apply the function to the 'Annual Salary' column
+df['Salary Category'] = df['Annual Salary'].apply(salary_category)
+print(df)
+```
+
+These examples demonstrate common data transformation techniques using Pandas.
+By applying these methods, you can clean, modify, and analyze your data more effectively.

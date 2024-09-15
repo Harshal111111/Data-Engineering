@@ -1,0 +1,87 @@
+Apache Pulsar is an open-source, distributed messaging and event streaming platform designed for high-performance,
+low-latency, and scalable messaging. It was initially developed by Yahoo and is now maintained by the Apache Software
+Foundation. Pulsar is often compared to Apache Kafka, but it has several key differences and unique features.
+
+Key Features of Apache Pulsar:
+
+1. Unified Messaging Model:
+   - Publish-Subscribe: Producers send messages to topics, and consumers can subscribe to receive messages from
+   those topics.
+   - Queueing: Supports both message queuing (like RabbitMQ) and publish-subscribe messaging (like Kafka).
+
+2. Multitenancy:
+   - Pulsar natively supports multitenancy, allowing different tenants (organizations or teams) to share the same
+   Pulsar cluster while maintaining data isolation and separate access controls.
+
+3. Distributed Architecture:
+   - Pulsar is designed to be distributed across multiple machines, providing horizontal scalability and high
+   availability. It separates the serving (brokers) and storage (bookies) layers, unlike Kafka, which combines them.
+
+4. Durable Storage via Apache BookKeeper:
+   - Pulsar uses Apache BookKeeper for its underlying storage, ensuring durability and data replication across multiple
+   nodes. This allows for strong consistency and fault tolerance.
+   - Data is stored persistently in BookKeeper and can be accessed for long-term replay and processing.
+
+5. Geo-Replication:
+   - Pulsar provides built-in support for multi-datacenter replication, allowing topics to be replicated across multiple
+   geographical regions.
+
+6. Message Delivery Guarantees:
+   - At-most-once, at-least-once, and exactly-once delivery semantics, providing flexibility depending on
+   the application's needs.
+
+7. Partitioned Topics:
+   - Topics can be partitioned to allow horizontal scaling. Multiple consumers can read from different partitions in
+   parallel for better throughput.
+
+8. Low Latency:
+   - Pulsar provides low-latency message delivery, making it suitable for real-time use cases such as event streaming,
+   IoT applications, and real-time analytics.
+
+9. Scalability:
+   - Due to its separation of serving and storage, Pulsar can scale independently for both compute and storage resources
+   , offering better flexibility as system loads grow.
+
+10. Schema Registry:
+   - Pulsar has a built-in schema registry for defining and enforcing data structure on topics, helping to manage and
+   evolve data over time.
+
+11. Functions and Connectors:
+   - Pulsar Functions: A lightweight compute framework that allows users to process real-time data directly within
+   Pulsar (similar to Kafka Streams).
+   - Pulsar IO: A framework to integrate with external systems (like databases, message queues, etc.) using
+    connectors.
+
+Components of Apache Pulsar:
+
+1. Producers: Clients that publish messages to Pulsar topics.
+2. Consumers: Clients that subscribe to topics and consume messages.
+3. Brokers: These handle message routing, serving requests from producers and consumers, and ensuring data
+availability.
+4. Bookies: These are part of Apache BookKeeper and handle the storage of messages.
+5. Zookeeper: Used for metadata management, cluster configuration, and leader election (although Pulsar is moving
+away from ZooKeeper for metadata management in future versions).
+6. Pulsar Manager: A web-based tool to monitor and manage Pulsar clusters.
+
+Use Cases of Apache Pulsar:
+
+- Real-time Data Streaming: Process large volumes of real-time data, such as in IoT, monitoring systems, or
+event-driven architectures.
+- Messaging Systems: As a replacement for traditional message queues like RabbitMQ, supporting both queuing and
+ pub-sub models.
+- Data Pipelines: Used for integrating and transferring data between various systems in a robust and scalable way.
+- Microservices: Facilitating communication between microservices, supporting flexible message processing and routing.
+- Geo-Distributed Systems: Applications that need strong data replication across multiple data centers or regions.
+
+Differences between Apache Pulsar and Apache Kafka:
+- Architecture: Kafka combines serving and storage in brokers, whereas Pulsar separates serving (brokers) from
+storage (bookies), allowing independent scaling.
+- Geo-Replication: Pulsar has built-in geo-replication, while Kafka requires additional tools (like Kafka MirrorMaker).
+- Message Queuing: Pulsar supports both queueing and publish-subscribe natively, whereas Kafka is focused on
+the publish-subscribe model.
+- Storage: Pulsar uses Apache BookKeeper for highly durable, log-structured storage.
+
+Conclusion:
+Apache Pulsar is a versatile platform for messaging and event streaming, offering features like multi-tenancy,
+geo-replication, and the ability to scale serving and storage independently. It's suited for real-time data processing,
+large-scale event streaming, and messaging systems that require flexibility and scalability.

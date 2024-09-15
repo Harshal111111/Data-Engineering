@@ -1,0 +1,44 @@
+Apache Kafka is an open-source, distributed event streaming platform primarily used for building real-time data
+pipelines and streaming applications. It was developed by LinkedIn and is now maintained by the Apache Software
+Foundation.
+
+Key Features of Apache Kafka:
+1.Event Streaming: Kafka enables real-time processing of events (or messages), making it ideal for applications that
+require low-latency data processing.
+
+2.Distributed Architecture: Kafka runs as a distributed system, meaning it can scale across multiple machines, ensuring
+high availability and fault tolerance.
+
+3.Publish-Subscribe Messaging System: Kafka works as a high-throughput messaging system where:
+   -Producers publish (send) messages to topics.
+   -Consumers subscribe to topics to read messages.
+
+4.Topics and Partitions: Messages are written to topics, which are further divided into partitions. Partitions allow
+parallelism, as multiple consumers can read from different partitions simultaneously.
+
+5.Durability: Kafka provides data durability through message replication across multiple brokers, meaning messages are
+safely stored and won’t be lost even in the case of server failure.
+
+6.Fault-Tolerant: Kafka is designed to handle hardware or network failures seamlessly, ensuring that data streams are
+not interrupted.
+
+7.Horizontal Scalability: Kafka can handle a large volume of data, making it highly scalable. You can increase capacity
+by adding more nodes to the cluster without downtime.
+
+Common Use Cases of Kafka:
+-Real-time Analytics: Processing real-time data for monitoring, predictive analytics, or business intelligence.
+-Log Aggregation: Collecting and storing logs from different systems for centralized processing.
+-Data Integration: Serving as a message broker for integrating various systems and transporting data between different
+applications.
+-Stream Processing: Kafka Streams API allows developers to build streaming applications to process events in real-time.
+-Event Sourcing: Storing a series of state-changing events (useful for microservices architectures).
+
+Components of Kafka:
+1.Producers: Send data (messages) to Kafka topics.
+2.Consumers: Read data from Kafka topics.
+3.Brokers: Kafka servers that manage data and handle producer/consumer requests.
+4.ZooKeeper: Manages cluster metadata, leader election, and configuration. (Note: Newer versions of Kafka are moving
+away from ZooKeeper with KRaft mode.)
+
+Kafka is widely used in industries like finance, retail, healthcare, and more due to its high performance and
+flexibility in handling data streams.
